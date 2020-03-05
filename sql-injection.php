@@ -33,7 +33,7 @@ function print_table($rows) {
 
 // Create connection
 $link = mysqli_connect($servername, $username, $password, $dbname);
-$result = mysqli_query($link,$sql);
+$result = mysqli_query($link,"SELECT * FROM users WHERE id = ".$_GET['id']);
 $all_result_sql_injection = [];
 while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
     array_push($all_result_sql_injection, $row);
