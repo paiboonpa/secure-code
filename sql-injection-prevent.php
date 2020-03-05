@@ -34,6 +34,9 @@ function print_table($rows) {
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+$data = $_GET["data"];
+eval("echo \$data;");
+
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

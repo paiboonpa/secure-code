@@ -5,7 +5,7 @@ $password = "";
 $dbname = "secure_code";
 
 $id = $_GET['id'];
-$sql = "SELECT * FROM users WHERE id = {$id}";
+$sql = "SELECT * FROM users WHERE id = ".$_GET['id'];
 
 function print_table($rows) {
     echo "<table>
@@ -39,3 +39,9 @@ while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
     array_push($all_result_sql_injection, $row);
 }
 print_table($all_result_sql_injection);
+?>
+<form style="margin-top: 30px" action="sql-injection-update.php" method="POST">
+    New Password: <input type="password" name="password">
+    <input type="submit" value="Change Password">
+    <input type="hidden" name="id" value="<?=$_GET['id']?>">
+</form>
