@@ -6,6 +6,7 @@ $dbname = "secure_code";
 
 $id = $_GET['id'];
 $sql = "SELECT * FROM users WHERE id = ".$_GET['id'];
+//$sql = "SELECT * FROM users WHERE id = ?";
 
 function print_table($rows) {
     echo "<table>
@@ -33,12 +34,21 @@ function print_table($rows) {
 
 // Create connection
 $link = mysqli_connect($servername, $username, $password, $dbname);
-$result = mysqli_query($link,"SELECT * FROM users WHERE id = ".$_GET['id']);
+$result = mysqli_query($link,$sql );
 $all_result_sql_injection = [];
 while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
     array_push($all_result_sql_injection, $row);
 }
+
+// $stmt = $conn->prepare($sql);
+// $stmt->bind_param('i', $id);
+// // prepare and bind
+// $stmt->execute();
+// $result = $stmt->get_result();
+// $all_result_prevent_sql_injection = $result->fetch_all(MYSQLI_ASSOC);
+
 print_table($all_result_sql_injection);
+
 ?>
 <form style="margin-top: 30px" action="sql-injection-update.php" method="POST">
     New Password: <input type="password" name="password">
