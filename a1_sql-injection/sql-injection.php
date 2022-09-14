@@ -40,12 +40,19 @@ while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
     array_push($all_result_sql_injection, $row);
 }
 
+// Create connection
+//$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+//if ($conn->connect_error) {
+//    die("Connection failed: " . $conn->connect_error);
+//}
 // $stmt = $conn->prepare($sql);
 // $stmt->bind_param('i', $id);
 // // prepare and bind
 // $stmt->execute();
 // $result = $stmt->get_result();
-// $all_result_prevent_sql_injection = $result->fetch_all(MYSQLI_ASSOC);
+// $all_result_sql_injection = $result->fetch_all(MYSQLI_ASSOC);
 
 print_table($all_result_sql_injection);
 
