@@ -13,11 +13,15 @@ class Login extends React.Component {
         const formData = new FormData();
         formData.append('login_username', document.getElementById('login_username').value);
         formData.append('login_password', document.getElementById('login_password').value);
-        const response = await fetch('http://localhost/secure-code/cors.php', {
-          method: 'POST',
-          body: formData,
-        })
-        alert(await response.text());
+        try {
+          const response = await fetch('http://localhost/secure-code/cors.php', {
+            method: 'POST',
+            body: formData,
+          })
+          alert(await response.text());
+        } catch (e) {
+          console.error(e);
+        }
       }
     });
   }
