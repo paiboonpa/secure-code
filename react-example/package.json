@@ -14,7 +14,7 @@
     "redux": "^4.0.5"
   },
   "scripts": {
-    "start": "npx react-scripts start",
+    "start": "SET NODE_OPTIONS=--openssl-legacy-provider && npx react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
