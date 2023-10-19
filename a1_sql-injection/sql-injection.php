@@ -5,8 +5,16 @@ $password = "";
 $dbname = "secure_code";
 
 $id = $_GET['id'];
-$sql = "SELECT * FROM users WHERE id = ".$_GET['id'];
+// $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+// if ($id === false) {
+//     die("Invalid ID");
+// }
+$sql = "SELECT * FROM users WHERE id = ".$id;
+//$sql = "SELECT * FROM users WHERE id = 1";
+//$sql = "SELECT * FROM users WHERE id = 1 OR 1";
 //$sql = "SELECT * FROM users WHERE id = ?";
+
+
 
 function print_table($rows) {
     echo "<table>
@@ -34,19 +42,19 @@ function print_table($rows) {
 
 // Create connection
 $link = mysqli_connect($servername, $username, $password, $dbname);
-$result = mysqli_query($link,$sql );
+$result = mysqli_query($link,$sql);
 $all_result_sql_injection = [];
 while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
     array_push($all_result_sql_injection, $row);
 }
 
 // Create connection
-//$conn = new mysqli($servername, $username, $password, $dbname);
+// $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
-//if ($conn->connect_error) {
+// //Check connection
+// if ($conn->connect_error) {
 //    die("Connection failed: " . $conn->connect_error);
-//}
+// }
 // $stmt = $conn->prepare($sql);
 // $stmt->bind_param('i', $id);
 // // prepare and bind

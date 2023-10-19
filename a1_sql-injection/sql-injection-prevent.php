@@ -4,7 +4,10 @@ $username = "root";
 $password = "";
 $dbname = "secure_code";
 
-$id = $_GET['id'];
+$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+if ($id === false) {
+    die("Invalid ID");
+}
 $sql = "SELECT * FROM users WHERE id = ?";
 
 function print_table($rows) {
