@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch } from 'react-router-dom'
+import { Routes } from 'react-router-dom'
 
 import { Layout } from 'antd';
 import NavBar from './components/navbar/NavBar'
@@ -19,9 +19,9 @@ class App extends React.Component {
             <NavBar />
           </Header>
           <Content style={{ height: '95vh' }}>
-            <Switch>
+            <Routes>
               <PrivateRoute handleAppLogin={this.login} role={role} />
-            </Switch>
+            </Routes>
           </Content>
         </Layout>
       </div>

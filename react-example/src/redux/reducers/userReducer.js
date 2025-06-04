@@ -1,5 +1,5 @@
 import { LOGIN_USER, LOGOUT_USER } from '../actions/actions'
-import jwtDecode from 'jwt-decode'
+import { jwtDecode } from 'jwt-decode'
 
 const initialState = () => {
   const token = localStorage.getItem('ACCESS_TOKEN');
