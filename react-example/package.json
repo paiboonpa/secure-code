@@ -16,7 +16,7 @@
   "scripts": {
     "start": "SET NODE_OPTIONS=--openssl-legacy-provider && npx react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false --runInBand",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
