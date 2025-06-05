@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import * as allRoutes from './index'
 import rolesConfig from '../../config/roles'
-import { Route, withRouter } from 'react-router-dom';
-import { Redirect } from 'react-router-dom'
+import { Route, withRouter, Redirect } from 'react-router-dom';
 
 class PrivateRoute extends Component {
   constructor(props) {
