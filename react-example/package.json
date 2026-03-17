@@ -9,12 +9,12 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-redux": "^9.2.0",
-    "react-router-dom": "^6.30.1",
+    "react-router-dom": "^5.3.4",
     "react-scripts": "^5.0.1",
     "redux": "^5.0.1"
   },
   "scripts": {
-    "start": "SET NODE_OPTIONS=--openssl-legacy-provider && npx react-scripts start",
+    "start": "npx react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false --runInBand",
     "eject": "react-scripts eject"
